@@ -1,5 +1,17 @@
 version: '3.8'
 services:
+  mongo:
+    ports:
+      - '27017:27017'
+    container_name: blago-mongo
+    restart: always
+    logging:
+      options:
+        max-size: 4g
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=work
+      - MONGO_INITDB_ROOT_PASSWORD=work
+    image: mongo
   postgres_db:
     image: postgres:latest
     container_name: PostgresDB
